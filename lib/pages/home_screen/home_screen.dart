@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             listener: (context, state) {
               if (state.errorMeassge.isNotEmpty || state.errorMeassge != "") {
                 Future.delayed(
-                  const Duration(milliseconds: 1750),
+                  const Duration(milliseconds: 1600),
                   () {
                     snackBar(
                       context,
