@@ -25,6 +25,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<FutureOr<void>> _getRemoteCategoriesEvent(
       GetRemoteCategoriesEvent event, Emitter<HomeState> emit) async {
+
+    emit(state.copyWith());
+    
     final result = await remoteHomeData.getCategories();
 
     result.fold((l) async {
