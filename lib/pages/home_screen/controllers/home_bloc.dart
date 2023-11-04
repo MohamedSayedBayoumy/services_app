@@ -45,21 +45,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       GetLocalCategoriesEvent event, Emitter<HomeState> emit) async {
     final result = await localHomeData.localCategories();
 
-    if (result.isEmpty) {
-      emit(
-        state.copyWith(
-          requestSatuts: Status.failure,
-          errorMeassge: event.failureMessage.toString(),
-        ),
-      );
-    } else {
-      emit(
-        state.copyWith(
-          requestSatuts: Status.failureWithcachedData,
-          errorMeassge: event.failureMessage.toString(),
-          listOfCachedData: result,
-        ),
-      );
-    }
+    result.fold(
+        (l) => {
+              emit(
+                state.copyWith(
+                  requestSatuts: Status.failure,
+                  errorMeassge: event.failureMessage.toString(),
+                ),
+              )
+            },
+        (r) => {
+              emit(
+                state.copyWith(
+                  requestSatuts: Status.failureWithcachedData,
+                  errorMeassge: event.failureMessage.toString(),
+                  listOfCachedData: r,
+                ),
+              )
+            });
   }
 }

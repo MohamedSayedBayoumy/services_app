@@ -6,12 +6,12 @@ import '../models/category_models.dart';
 import '../../common/errors/remote_errors.dart';
 
 abstract class GetRemoteHomeData {
-  Future<Either<RemoteErrors, List<CategoryModel>>> getCategories();
+  Future<Either<HandleErrors, List<CategoryModel>>> getCategories();
 }
 
 class FetchRemoteHomeData implements GetRemoteHomeData {
   @override
-  Future<Either<RemoteErrors, List<CategoryModel>>> getCategories() async {
+  Future<Either<HandleErrors, List<CategoryModel>>> getCategories() async {
     try {
       final response =
           await Dio().get("https://jsonplaceholder.typicode.com/users");

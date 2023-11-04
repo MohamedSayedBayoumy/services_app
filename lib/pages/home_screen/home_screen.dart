@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../common/constants/colors.dart';
-import '../../common/constants/fonts.dart';
-import '../../common/functions/snak_bar.dart';
-import '../../common/services/services_locator.dart';
-import '../../common/utils/enum.dart';
+import 'widgets/tab_widget.dart';
 import 'controllers/home_bloc.dart';
 import 'widgets/intro_widgets.dart';
+import '../../common/utils/enum.dart';
 import 'widgets/tab_view_widget.dart';
-import 'widgets/tab_widget.dart';
+import '../../common/constants/fonts.dart';
+import '../../common/constants/colors.dart';
+import '../../common/functions/snak_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../common/services/services_locator.dart';
 
 class HomeScreen extends StatefulWidget {
   final Size media;
@@ -71,7 +71,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverToBoxAdapter(
-                  child: IntroWidget(media: widget.media),
+                  child: IntroWidget(
+                    media: widget.media,
+                  ),
                 )),
             SliverToBoxAdapter(
               child: SizeTransition(
@@ -217,6 +219,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: Center(
                       child: Text(
                         state.errorMeassge.toString(),
+                        style: Fonts.defaultFont.copyWith(
+                          color: const Color(0xff707070),
+                          fontWeight: FontWeight.w400,
+                          fontSize: widget.media.width * .05,
+                        ),
                       ),
                     ),
                   );

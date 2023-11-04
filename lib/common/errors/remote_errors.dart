@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 
-abstract class RemoteErrors {
+abstract class HandleErrors {
   final String errorMessage;
 
-  RemoteErrors({required this.errorMessage});
+  HandleErrors({required this.errorMessage});
 }
 
-class HandlerRemoteErrors extends RemoteErrors {
+class HandlerRemoteErrors extends HandleErrors {
   HandlerRemoteErrors({required super.errorMessage});
 
   factory HandlerRemoteErrors.fromDioExceptionType(DioExceptionType dioError) {
@@ -32,6 +32,18 @@ class HandlerRemoteErrors extends RemoteErrors {
       case DioExceptionType.unknown:
         return HandlerRemoteErrors(
             errorMessage: "Some Things went wrong , try again");
+    }
+  }
+}
+
+class HandleLocalErrors extends HandleErrors {
+  HandleLocalErrors({required super.errorMessage});
+
+  factory HandleLocalErrors.fromTypeError(String type) {
+    if (type == "'Null' is not a subtype of type 'FutureOr<List<dynamic>>'") {
+      return HandleLocalErrors(errorMessage: "Check your internet connection");
+    } else {
+      return HandleLocalErrors(errorMessage: "Check your internet connection");
     }
   }
 }

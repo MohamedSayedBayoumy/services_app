@@ -38,37 +38,56 @@ class _BottomNavigationBarScreensState
           const ProfileScreen()
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xffffffff),
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentIndex,
-        onTap: (value) {
-          pageController.animateToPage(value,
-              duration: const Duration(milliseconds: 100),
-              curve: Curves.linear);
-        },
-        selectedLabelStyle:
-            Fonts.defaultFont.copyWith(fontWeight: FontWeight.w400),
-        selectedItemColor: AppColors.mainColor,
-        selectedIconTheme: const IconThemeData(color: AppColors.mainColor),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Images.homeImage)),
-            label: 'Home',
+      bottomNavigationBar: Container(
+        width: media.width,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xfff9f9f9),
+              spreadRadius: 5,
+              blurRadius: 2,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: BottomNavigationBar(
+            elevation: 0.0,
+            backgroundColor: const Color(0xffffffff),
+            type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              pageController.animateToPage(value,
+                  duration: const Duration(milliseconds: 100),
+                  curve: Curves.linear);
+            },
+            selectedLabelStyle:
+                Fonts.defaultFont.copyWith(fontWeight: FontWeight.w400),
+            selectedItemColor: AppColors.mainColor,
+            selectedIconTheme: const IconThemeData(color: AppColors.mainColor),
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage(Images.homeImage),
+                ),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(Images.dashboardImage)),
+                label: 'Assets',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(Images.callCenterImage)),
+                label: 'Support',
+              ),
+              BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(Images.personImage)),
+                label: 'Profile',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Images.dashboardImage)),
-            label: 'Assets',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Images.callCenterImage)),
-            label: 'Support',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Images.personImage)),
-            label: 'Profile',
-          ),
-        ],
+        ),
       ),
     );
   }

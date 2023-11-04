@@ -67,7 +67,7 @@ class _IntroWidgetState extends State<IntroWidget>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
                         Images.faceImage,
@@ -89,7 +89,8 @@ class _IntroWidgetState extends State<IntroWidget>
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 5, top: 12),
+                    padding: EdgeInsets.only(
+                        bottom: 5, top: widget.media.height * .029),
                     child: Text(
                       "Multi-Services for Your Real Estate Needs",
                       style: Fonts.defaultFont.copyWith(
