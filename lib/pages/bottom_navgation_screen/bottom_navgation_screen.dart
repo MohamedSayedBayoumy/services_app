@@ -66,6 +66,8 @@ class _BottomNavigationBarScreensState
                 Fonts.defaultFont.copyWith(fontWeight: FontWeight.w400),
             selectedItemColor: AppColors.mainColor,
             selectedIconTheme: const IconThemeData(color: AppColors.mainColor),
+            unselectedIconTheme:
+                const IconThemeData(color: AppColors.unSelectedIconColor),
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: ImageIcon(
