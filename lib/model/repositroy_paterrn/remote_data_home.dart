@@ -2,10 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-// import 'package:hive/hive.dart';
-
-import '../../common/errors/remote_errors.dart';
 import '../models/category_models.dart';
+import '../../common/errors/remote_errors.dart';
 
 abstract class GetRemoteHomeData {
   Future<Either<RemoteErrors, List<CategoryModel>>> getCategories();
@@ -18,9 +16,9 @@ class FetchRemoteHomeData implements GetRemoteHomeData {
       final response =
           await Dio().get("https://jsonplaceholder.typicode.com/users");
 
-      // final box = await Hive.openBox('CacheData');
-      // await box.put('CacheHomeData',
-      //     response.data.getRange(0, 3).toList() as List<dynamic>);
+      final box = await Hive.openBox('CacheHomeData');
+      await box.put('CacheHomeData',
+          response.data.getRange(0, 3).toList() as List<dynamic>);
 
       return Right(
         List<CategoryModel>.from(

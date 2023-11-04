@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:services_app/common/constants/colors.dart';
-import 'package:services_app/common/constants/images.dart';
-import 'package:services_app/pages/assets_screen/assest_screen.dart';
-import 'package:services_app/pages/profile_screen/profile_screen.dart';
-import 'package:services_app/pages/support_screen/support_screen.dart';
-
-import '../../common/constants/fonts.dart';
 import '../home_screen/home_screen.dart';
+import '../../common/constants/fonts.dart';
+import '../../common/constants/colors.dart';
+import '../../common/constants/images.dart';
+import '../assets_screen/assest_screen.dart';
+import '../profile_screen/profile_screen.dart';
+import '../support_screen/support_screen.dart';
 
 class BottomNavigationBarScreens extends StatefulWidget {
   const BottomNavigationBarScreens({super.key});

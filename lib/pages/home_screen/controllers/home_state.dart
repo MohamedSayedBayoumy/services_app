@@ -1,31 +1,36 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
-  final Status requestSatuts;
-  final List<CategoryModel> listOfCategories;
   final String errorMeassge;
+  final Status requestSatuts;
+  final List<dynamic> listOfCachedData;
+  final List<CategoryModel> listOfCategories;
 
   const HomeState({
-    this.requestSatuts = Status.loading,
-    this.listOfCategories = const [],
     this.errorMeassge = "",
+    this.listOfCategories = const [],
+    this.listOfCachedData = const [],
+    this.requestSatuts = Status.loading,
   });
 
   HomeState copyWith({
-    Status? requestSatuts,
-    List<CategoryModel>? listOfCategories,
     String? errorMeassge,
+    Status? requestSatuts,
+    List<dynamic>? listOfCachedData,
+    List<CategoryModel>? listOfCategories,
   }) =>
       HomeState(
-        requestSatuts: requestSatuts ?? this.requestSatuts,
-        listOfCategories: listOfCategories ?? this.listOfCategories,
         errorMeassge: errorMeassge ?? this.errorMeassge,
+        requestSatuts: requestSatuts ?? this.requestSatuts,
+        listOfCachedData: listOfCachedData ?? this.listOfCachedData,
+        listOfCategories: listOfCategories ?? this.listOfCategories,
       );
 
   @override
   List<Object> get props => [
-        requestSatuts,
-        listOfCategories,
         errorMeassge,
+        requestSatuts,
+        listOfCachedData,
+        listOfCategories,
       ];
 }

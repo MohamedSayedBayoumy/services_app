@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:services_app/common/constants/colors.dart';
 
+import 'colors.dart';
+ 
 class Fonts {
   static const defaultFont = TextStyle(
     fontFamily: "main-font",

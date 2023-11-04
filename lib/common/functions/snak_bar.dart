@@ -1,10 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-import 'package:another_flushbar/flushbar.dart';
+import '../constants/fonts.dart';
+import '../constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:services_app/common/constants/colors.dart';
-import 'package:services_app/common/constants/fonts.dart';
-
+import 'package:another_flushbar/flushbar.dart';
 
 snackBar(
   BuildContext context, {

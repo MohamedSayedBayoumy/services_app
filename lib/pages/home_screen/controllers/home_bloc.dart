@@ -28,16 +28,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final result = await remoteHomeData.getCategories();
 
     result.fold((l) async {
-      emit(
-        state.copyWith(
-          requestSatuts: Status.failure,
-          errorMeassge: l.errorMessage,
-        ),
-      );
-
-      // add(GetLocalCategoriesEvent(
-      //   failureMessage: l.errorMessage.toString(),
-      // ));
+      add(GetLocalCategoriesEvent(
+        failureMessage: l.errorMessage.toString(),
+      ));
     }, (r) {
       emit(
         state.copyWith(
@@ -62,9 +55,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } else {
       emit(
         state.copyWith(
-          requestSatuts: Status.failure,
+          requestSatuts: Status.failureWithcachedData,
           errorMeassge: event.failureMessage.toString(),
-          // listOfCategories: result! ,
+          listOfCachedData: result,
         ),
       );
     }

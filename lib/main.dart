@@ -1,23 +1,20 @@
-
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-
 import 'common/services/services_locator.dart';
- import 'pages/bottom_navgation_screen/bottom_navgation_screen.dart';
- 
+import 'package:hive_flutter/hive_flutter.dart';
+import 'pages/bottom_navgation_screen/bottom_navgation_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Future.wait([]);
   await Hive.initFlutter();
-  
+
   ServicesLocator.service();
-  runApp(
-    DevicePreview(
-      builder: (context) => const MyApp(),
-    ),
-  );
-  // runApp(const MyApp());
+  // runApp(
+  //   DevicePreview(
+  //     builder: (context) => const MyApp(),
+  //   ),
+  // );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,8 +26,8 @@ class MyApp extends StatelessWidget {
       title: 'Services App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffffffff)),
+        // useMaterial3: true,
       ),
       home: const BottomNavigationBarScreens(),
     );

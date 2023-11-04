@@ -29,18 +29,18 @@ class _IntroWidgetState extends State<IntroWidget>
   void initState() {
     super.initState();
 
-    firstcontroller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 1400))
-          ..forward();
+    firstcontroller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1400))
+      ..forward();
 
     firstanimation =
         Tween<Offset>(begin: const Offset(-10, 0), end: const Offset(0, 0))
             .animate(CurvedAnimation(
                 parent: firstcontroller, curve: Curves.easeInOutQuint));
 
-    secondController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 1600))
-          ..forward();
+    secondController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1600))
+      ..forward();
 
     secondAnimation =
         Tween<Offset>(begin: const Offset(10, 0), end: const Offset(0, 0))
@@ -71,20 +71,20 @@ class _IntroWidgetState extends State<IntroWidget>
                     children: [
                       Image.asset(
                         Images.faceImage,
-                        height: widget.media.width * 0.1,
-                        width: widget.media.width * 0.1,
+                        height: widget.media.width * 0.09,
+                        width: widget.media.width * 0.09,
                       ),
                       Text(
                         "Hey , Ahmed",
                         style: Fonts.defaultFont.copyWith(
                           fontSize: widget.media.width * .05,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Image.asset(
                         Images.handImage,
-                        height: widget.media.width * 0.05,
-                        width: widget.media.width * 0.05,
+                        height: widget.media.width * 0.058,
+                        width: widget.media.width * 0.058,
                       ),
                     ],
                   ),
@@ -110,8 +110,6 @@ class _IntroWidgetState extends State<IntroWidget>
               ),
             ),
           ),
-
-          
           SlideTransition(
             position: secondAnimation,
             child: Padding(
