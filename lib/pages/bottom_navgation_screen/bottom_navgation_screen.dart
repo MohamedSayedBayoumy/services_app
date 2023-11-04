@@ -51,33 +51,21 @@ class _BottomNavigationBarScreensState
             Fonts.defaultFont.copyWith(fontWeight: FontWeight.w400),
         selectedItemColor: AppColors.mainColor,
         selectedIconTheme: const IconThemeData(color: AppColors.mainColor),
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Image.asset(
-              Images.homeImage,
-              height: media.height * .035,
-            ),
+            icon: ImageIcon(AssetImage(Images.homeImage)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              Images.dashboardImage,
-              height: media.height * .035,
-            ),
+            icon: ImageIcon(AssetImage(Images.dashboardImage)),
             label: 'Assets',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              Images.callCenterImage,
-              height: media.height * .035,
-            ),
+            icon: ImageIcon(AssetImage(Images.callCenterImage)),
             label: 'Support',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              Images.personImage,
-              height: media.height * .035,
-            ),
+            icon: ImageIcon(AssetImage(Images.personImage)),
             label: 'Profile',
           ),
         ],

@@ -5,8 +5,9 @@ import 'pages/bottom_navgation_screen/bottom_navgation_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Future.wait([]);
-  await Hive.initFlutter();
+  Future.wait([
+    Hive.initFlutter(),
+  ]);
 
   ServicesLocator.service();
   // runApp(
