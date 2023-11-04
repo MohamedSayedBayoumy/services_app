@@ -30,7 +30,7 @@ class _IntroWidgetState extends State<IntroWidget>
     super.initState();
 
     firstcontroller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1400))
+        vsync: this, duration: const Duration(milliseconds: 800))
       ..forward();
 
     firstanimation =
@@ -39,7 +39,7 @@ class _IntroWidgetState extends State<IntroWidget>
                 parent: firstcontroller, curve: Curves.easeInOutQuint));
 
     secondController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1600))
+        vsync: this, duration: const Duration(milliseconds: 1000))
       ..forward();
 
     secondAnimation =
